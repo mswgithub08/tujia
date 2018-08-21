@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>手机途家网</title>
+    <meta name=description content=手机途家网，国内首家高品质旅游度假公寓预订网站,提供国内各大旅游景点最新最全度假公寓,酒店式公寓,短租公寓,家庭旅馆,日租房信息,专业的度假公寓和房屋托管服务。早知有途家网，何必住酒店！>
+    <meta name=keywords content=酒店式公寓，家庭旅馆，日租房，短租房，度假公寓，手机途家网><meta name=mobile-web-app-capable content=yes>
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="/stylesheets/iconfont.css">
+    <link rel='stylesheet' href='/stylesheets/swiper.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='/javascripts/jquery.min.js'></script>
+	<script src='/javascripts/index.js'></script>
+  </head>
+  <body>
+    <div class="enter unshow">
+        <div class="bottom">
+            <span class="iconfont icon-LC_icon_close_line"></span>
+            <img src="images/<%= data[3][0].img %>" alt="">
+        </div>
+    </div>
+    <header>
+    	<div class="logo"></div>
+    	<span class="iconfont icon-caidanlan"></span>
+    </header>
+    <nav>
+        <% for(var i=0;i<data[0].length;i++){ %>
+            <a href="#">
+                <div>
+                    <img src="images/<%= data[0][i].pic %>" alt="">
+                </div>
+            </a>
+        <% } %>
+    	
+    	<div class="search">
+	    	<div class="figture">
+	    		<img src="images/search.png" alt="">
+	    		<p>您想住哪儿？</p>
+	    	</div>   		
+    	</div>
+    </nav>
+    <div class="sidebar">
+        <div class="s_right"></div>
+        <div class="s_left">
+            <span class="iconfont icon-LC_icon_close_line"></span>
+            <ul>
+                <li><a href="#"><i class="iconfont icon-shouye"></i>首页</a></li>
+                <li><a href="#"><i class="iconfont icon-dingweiweizhizuobiaoxianxing"></i>搜索附近</a></li>
+            </ul>
+            <ul class="nologin">
+                <li class="login"><a href=""><i class="iconfont icon-denglu"></i>登录</a></li>
+                <li><a href=""><i class="iconfont icon-fankui"></i>注册</a></li>
+            </ul>
+            <ul class="logined unshow">
+                <li><a href=""><i class="iconfont icon-wode1"></i>我的</a></li>
+                <li><a href=""><i class="iconfont icon-dingdan"></i>订单</a></li>
+                <li><a href=""><i class="iconfont icon-shoucang"></i>收藏</a></li>
+                <li><a href=""><i class="iconfont icon-icon-news"></i>消息</a></li>
+                <li class="leave"><a href=""><i class="iconfont icon-tuichudenglu"></i>退出登录</a></li>
+            </ul>
+            <ul class="b_ul">
+                <li><a href=""><i class="iconfont icon-fankui"></i>意见反馈</a></li>
+            </ul>
+        </div>       
+    </div>
+    <section>
+    	<div class="top">
+    		<div class="t_left">
+    			<div class="i"></div>
+    			<span>我的途家</span>
+    		</div>
+    		<div class="t_right">
+	    		<div class="i"></div>
+	    		<span>我的订单</span>
+    		</div>
+    	</div>
+        <div class="theme">
+            <h2>精选主题</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <% for(var i=0;i<data[1].length;i++){ %>
+                        <div class="swiper-slide"><img src="images/<%= data[1][i].pic %>" alt=""></div>
+                    <% } %>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="find">
+            <h2>发现公寓</h2>
+            <ul>
+                <% for(var i=0;i<data[2].length;i++){ %>
+                <li>
+                    <div class="photo">
+                        <img src="images/<%= data[2][i].pic %>" alt="">
+                        <span class="price">
+                            <u>￥</u><span><%= data[2][i].price %></span>
+                            <u>还剩<i><%= data[2][i].count %></i>间房</u>                          
+                        </span>
+                    </div>
+                    <div class="f_con">
+                        <div class="client">
+                            <img src="images/<%= data[2][i].pep %>" alt="">                           
+                        </div>
+                        <span class="span iconfont icon-cantingliebiaoyexingji-huisesvg"></span>
+                        <h3><%= data[2][i].title %></h3>
+                        <p>
+                            <% for(var k=0;k<data[2][i].con.length;k++){ %>
+                                <span><%= data[2][i].con[k].star %>
+                                <i class="u_dot"></i></span>
+                            <% } %>
+                        </p>
+                        <ul>
+                            <% for(var j=0;j<data[2][i].type.length;j++){ %>
+                                <li><%= data[2][i].type[j].type1 %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <span class="like"><img src="images/like.png" alt=""></span>
+                    
+                </li>
+                <% } %>
+                
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <ul class="f_one">
+            <li><a href="#">关于途家</a></li>
+            <li><a href="#">客服热线</a></li>
+            <li><a href="#">电脑版</a></li>           
+        </ul>
+        <ul class="f_two">
+            <li><a href="#">企业营业执照</a></li>
+            <li><a href="#">途家保障计划</a></li>
+        </ul>
+        <p>©2018 途家网 津ICP备17006480号</p>
+    </footer>
+
+    <script src='/javascripts/swiper.min.js'></script>
+  </body>
+</html>
